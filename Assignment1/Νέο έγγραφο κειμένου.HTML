@@ -1,0 +1,454 @@
+<!-- HTML generated using hilite.me --><div style="background: #FFFFFF; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">  1
+  2
+  3
+  4
+  5
+  6
+  7
+  8
+  9
+ 10
+ 11
+ 12
+ 13
+ 14
+ 15
+ 16
+ 17
+ 18
+ 19
+ 20
+ 21
+ 22
+ 23
+ 24
+ 25
+ 26
+ 27
+ 28
+ 29
+ 30
+ 31
+ 32
+ 33
+ 34
+ 35
+ 36
+ 37
+ 38
+ 39
+ 40
+ 41
+ 42
+ 43
+ 44
+ 45
+ 46
+ 47
+ 48
+ 49
+ 50
+ 51
+ 52
+ 53
+ 54
+ 55
+ 56
+ 57
+ 58
+ 59
+ 60
+ 61
+ 62
+ 63
+ 64
+ 65
+ 66
+ 67
+ 68
+ 69
+ 70
+ 71
+ 72
+ 73
+ 74
+ 75
+ 76
+ 77
+ 78
+ 79
+ 80
+ 81
+ 82
+ 83
+ 84
+ 85
+ 86
+ 87
+ 88
+ 89
+ 90
+ 91
+ 92
+ 93
+ 94
+ 95
+ 96
+ 97
+ 98
+ 99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #000080">// Tsampiras Konstantinos, AM 4508, cse84508</span>
+
+<span style="color: #00cd00">class</span> <span style="color: #00cdcd">ComplexNumber</span>
+<span style="color: #3399cc">{</span>
+	<span style="color: #000080">//// Fields</span>
+
+	<span style="color: #00cd00">private</span> <span style="color: #00cd00">double</span> <span style="color: #111111">real</span> <span style="color: #3399cc">=</span> <span style="color: #cd00cd">0</span><span style="color: #3399cc">;</span>
+	<span style="color: #00cd00">private</span> <span style="color: #00cd00">double</span> <span style="color: #111111">img</span> <span style="color: #3399cc">=</span> <span style="color: #cd00cd">0</span><span style="color: #3399cc">;</span>
+
+	<span style="color: #000080">//// Constructor Method</span>
+
+	<span style="color: #000080">// Constructor Method with 2 parameters</span>
+	<span style="color: #00cd00">public</span> <span style="color: #111111">ComplexNumber</span><span style="color: #3399cc">(</span><span style="color: #00cd00">double</span> <span style="color: #111111">real</span><span style="color: #3399cc">,</span> <span style="color: #00cd00">double</span> <span style="color: #111111">img</span><span style="color: #3399cc">)</span> <span style="color: #3399cc">{</span>
+		<span style="color: #cdcd00">this</span><span style="color: #3399cc">.</span><span style="color: #111111">real</span> <span style="color: #3399cc">=</span> <span style="color: #111111">real</span><span style="color: #3399cc">;</span>
+		<span style="color: #cdcd00">this</span><span style="color: #3399cc">.</span><span style="color: #111111">img</span> <span style="color: #3399cc">=</span> <span style="color: #111111">img</span><span style="color: #3399cc">;</span>
+	<span style="color: #3399cc">}</span>
+
+	<span style="color: #000080">//// Methods</span>
+
+	<span style="color: #000080">// addComp Method</span>
+	<span style="color: #000080">/* Calculates the sum of the real and the imaginary </span>
+<span style="color: #000080">	 * part of the 2 Complex Numbers and sets these values</span>
+<span style="color: #000080">	 * to the object that called the method </span>
+<span style="color: #000080">	 */</span>
+
+	<span style="color: #00cd00">public</span> <span style="color: #111111">ComplexNumber</span> <span style="color: #111111">addComp</span><span style="color: #3399cc">(</span><span style="color: #111111">ComplexNumber</span> <span style="color: #111111">num</span><span style="color: #3399cc">)</span> <span style="color: #3399cc">{</span>
+		<span style="color: #cdcd00">this</span><span style="color: #3399cc">.</span><span style="color: #111111">real</span> <span style="color: #3399cc">+=</span> <span style="color: #111111">num</span><span style="color: #3399cc">.</span><span style="color: #111111">real</span><span style="color: #3399cc">;</span>
+		<span style="color: #cdcd00">this</span><span style="color: #3399cc">.</span><span style="color: #111111">img</span> <span style="color: #3399cc">+=</span> <span style="color: #111111">num</span><span style="color: #3399cc">.</span><span style="color: #111111">img</span><span style="color: #3399cc">;</span>
+		<span style="color: #cdcd00">return</span> <span style="color: #cdcd00">this</span><span style="color: #3399cc">;</span>
+	<span style="color: #3399cc">}</span>
+
+	<span style="color: #000080">// subtractComp Method</span>
+	<span style="color: #000080">/* Calculates the difference of the real and the imaginary </span>
+<span style="color: #000080">	 * part of the 2 Complex Numbers (objects) and sets these </span>
+<span style="color: #000080">	 * values to the object that called the method</span>
+<span style="color: #000080">	 */</span>
+
+	<span style="color: #00cd00">public</span> <span style="color: #111111">ComplexNumber</span> <span style="color: #111111">subtractComp</span><span style="color: #3399cc">(</span><span style="color: #111111">ComplexNumber</span> <span style="color: #111111">num</span><span style="color: #3399cc">)</span> <span style="color: #3399cc">{</span>
+		<span style="color: #cdcd00">this</span><span style="color: #3399cc">.</span><span style="color: #111111">real</span> <span style="color: #3399cc">-=</span> <span style="color: #111111">num</span><span style="color: #3399cc">.</span><span style="color: #111111">real</span><span style="color: #3399cc">;</span>
+		<span style="color: #cdcd00">this</span><span style="color: #3399cc">.</span><span style="color: #111111">img</span> <span style="color: #3399cc">-=</span> <span style="color: #111111">num</span><span style="color: #3399cc">.</span><span style="color: #111111">img</span><span style="color: #3399cc">;</span>
+		<span style="color: #cdcd00">return</span> <span style="color: #cdcd00">this</span><span style="color: #3399cc">;</span>
+	<span style="color: #3399cc">}</span>
+
+	<span style="color: #000080">// multiplyComp Method</span>
+	<span style="color: #000080">/* Creates a temporary object, calculates the product</span>
+<span style="color: #000080">	 * of 2 Complex Numbers (objects) based on the algorithm </span>
+<span style="color: #000080">	 * (a+bi)*(c+di)=(ac-bd)+(ad+bc)i with Real=(ac-bd) and </span>
+<span style="color: #000080">	 * Imaginary=(ad+bc) and sets these values to the object</span>
+<span style="color: #000080">	 * that called the method </span>
+<span style="color: #000080">	 */</span>
+
+	<span style="color: #00cd00">public</span> <span style="color: #111111">ComplexNumber</span> <span style="color: #111111">multiplyComp</span><span style="color: #3399cc">(</span><span style="color: #111111">ComplexNumber</span> <span style="color: #111111">num</span><span style="color: #3399cc">)</span> <span style="color: #3399cc">{</span>
+		<span style="color: #111111">ComplexNumber</span> <span style="color: #111111">temp</span> <span style="color: #3399cc">=</span> <span style="color: #cdcd00">new</span> <span style="color: #111111">ComplexNumber</span><span style="color: #3399cc">(</span><span style="color: #cdcd00">this</span><span style="color: #3399cc">.</span><span style="color: #111111">real</span><span style="color: #3399cc">,</span> <span style="color: #cdcd00">this</span><span style="color: #3399cc">.</span><span style="color: #111111">img</span><span style="color: #3399cc">);</span>
+		<span style="color: #111111">temp</span><span style="color: #3399cc">.</span><span style="color: #111111">real</span> <span style="color: #3399cc">=</span> <span style="color: #cdcd00">this</span><span style="color: #3399cc">.</span><span style="color: #111111">real</span> <span style="color: #3399cc">*</span> <span style="color: #111111">num</span><span style="color: #3399cc">.</span><span style="color: #111111">real</span> <span style="color: #3399cc">-</span> <span style="color: #cdcd00">this</span><span style="color: #3399cc">.</span><span style="color: #111111">img</span> <span style="color: #3399cc">*</span> <span style="color: #111111">num</span><span style="color: #3399cc">.</span><span style="color: #111111">img</span><span style="color: #3399cc">;</span>
+		<span style="color: #111111">temp</span><span style="color: #3399cc">.</span><span style="color: #111111">img</span> <span style="color: #3399cc">=</span> <span style="color: #cdcd00">this</span><span style="color: #3399cc">.</span><span style="color: #111111">real</span> <span style="color: #3399cc">*</span> <span style="color: #111111">num</span><span style="color: #3399cc">.</span><span style="color: #111111">img</span> <span style="color: #3399cc">+</span> <span style="color: #cdcd00">this</span><span style="color: #3399cc">.</span><span style="color: #111111">img</span> <span style="color: #3399cc">*</span> <span style="color: #111111">num</span><span style="color: #3399cc">.</span><span style="color: #111111">real</span><span style="color: #3399cc">;</span>
+		<span style="color: #cdcd00">this</span><span style="color: #3399cc">.</span><span style="color: #111111">real</span> <span style="color: #3399cc">=</span> <span style="color: #111111">temp</span><span style="color: #3399cc">.</span><span style="color: #111111">real</span><span style="color: #3399cc">;</span>
+		<span style="color: #cdcd00">this</span><span style="color: #3399cc">.</span><span style="color: #111111">img</span> <span style="color: #3399cc">=</span> <span style="color: #111111">temp</span><span style="color: #3399cc">.</span><span style="color: #111111">img</span><span style="color: #3399cc">;</span>
+		<span style="color: #cdcd00">return</span> <span style="color: #cdcd00">this</span><span style="color: #3399cc">;</span>
+	<span style="color: #3399cc">}</span>
+
+	<span style="color: #000080">// toString Method</span>
+	<span style="color: #000080">/* Returns a String representation </span>
+<span style="color: #000080">	 * of the object that called the method </span>
+<span style="color: #000080">	 * with the format &quot;Real Symbol Image i&quot;</span>
+<span style="color: #000080">	 * and truncates numbers to 2 decimal places </span>
+<span style="color: #000080">	 */</span>
+
+	<span style="color: #00cd00">public</span> <span style="color: #111111">String</span> <span style="color: #111111">toString</span><span style="color: #3399cc">()</span> <span style="color: #3399cc">{</span>
+		<span style="color: #cdcd00">if</span> <span style="color: #3399cc">(</span><span style="color: #111111">img</span> <span style="color: #3399cc">&gt;=</span> <span style="color: #cd00cd">0</span><span style="color: #3399cc">)</span> <span style="color: #3399cc">{</span>
+			<span style="color: #cdcd00">return</span> <span style="color: #111111">String</span><span style="color: #3399cc">.</span><span style="color: #111111">format</span><span style="color: #3399cc">(</span><span style="color: #cd0000">&quot;%.2f&quot;</span><span style="color: #3399cc">,</span> <span style="color: #111111">real</span><span style="color: #3399cc">)</span> <span style="color: #3399cc">+</span> <span style="color: #cd0000">&quot; + &quot;</span> <span style="color: #3399cc">+</span> <span style="color: #111111">String</span><span style="color: #3399cc">.</span><span style="color: #111111">format</span><span style="color: #3399cc">(</span><span style="color: #cd0000">&quot;%.2f&quot;</span><span style="color: #3399cc">,</span> <span style="color: #111111">img</span><span style="color: #3399cc">)</span> <span style="color: #3399cc">+</span> <span style="color: #cd0000">&quot;i&quot;</span> <span style="color: #3399cc">;</span>
+		<span style="color: #3399cc">}</span> <span style="color: #cdcd00">else</span> <span style="color: #3399cc">{</span>
+			<span style="color: #cdcd00">return</span> <span style="color: #111111">String</span><span style="color: #3399cc">.</span><span style="color: #111111">format</span><span style="color: #3399cc">(</span><span style="color: #cd0000">&quot;%.2f&quot;</span><span style="color: #3399cc">,</span> <span style="color: #111111">real</span><span style="color: #3399cc">)</span> <span style="color: #3399cc">+</span> <span style="color: #cd0000">&quot; - &quot;</span> <span style="color: #3399cc">+</span> <span style="color: #111111">String</span><span style="color: #3399cc">.</span><span style="color: #111111">format</span><span style="color: #3399cc">(</span><span style="color: #cd0000">&quot;%.2f&quot;</span><span style="color: #3399cc">,</span> <span style="color: #3399cc">-</span><span style="color: #111111">img</span><span style="color: #3399cc">)</span> <span style="color: #3399cc">+</span> <span style="color: #cd0000">&quot;i&quot;</span><span style="color: #3399cc">;</span>
+		<span style="color: #3399cc">}</span>
+	<span style="color: #3399cc">}</span>
+
+	<span style="color: #000080">// equals Method</span>
+	<span style="color: #000080">/* Checks if the 2 Complex Numbers (objects) are equal by checking </span>
+<span style="color: #000080">	 * the equality of the real part and the imaginary part of those </span>
+<span style="color: #000080">	 */</span>
+
+	<span style="color: #00cd00">public</span> <span style="color: #00cd00">boolean</span> <span style="color: #111111">equals</span><span style="color: #3399cc">(</span><span style="color: #111111">ComplexNumber</span> <span style="color: #111111">num</span><span style="color: #3399cc">)</span> <span style="color: #3399cc">{</span>
+		<span style="color: #cdcd00">if</span> <span style="color: #3399cc">(</span><span style="color: #cdcd00">this</span><span style="color: #3399cc">.</span><span style="color: #111111">real</span> <span style="color: #3399cc">==</span> <span style="color: #111111">num</span><span style="color: #3399cc">.</span><span style="color: #111111">real</span> <span style="color: #3399cc">&amp;&amp;</span> <span style="color: #cdcd00">this</span><span style="color: #3399cc">.</span><span style="color: #111111">img</span> <span style="color: #3399cc">==</span> <span style="color: #111111">num</span><span style="color: #3399cc">.</span><span style="color: #111111">img</span><span style="color: #3399cc">)</span> <span style="color: #3399cc">{</span>
+			<span style="color: #cdcd00">return</span> <span style="color: #cdcd00">true</span><span style="color: #3399cc">;</span>
+		<span style="color: #3399cc">}</span>
+		<span style="color: #cdcd00">return</span> <span style="color: #cdcd00">false</span><span style="color: #3399cc">;</span>
+	<span style="color: #3399cc">}</span>
+
+	<span style="color: #000080">// Accessors</span>
+	<span style="color: #000080">/* Returns the values of the</span>
+<span style="color: #000080">	 * Fields Real and Imaginary </span>
+<span style="color: #000080">	 */</span>
+
+	<span style="color: #00cd00">public</span> <span style="color: #00cd00">double</span> <span style="color: #111111">getReal</span><span style="color: #3399cc">()</span> <span style="color: #3399cc">{</span>
+		<span style="color: #cdcd00">return</span> <span style="color: #111111">real</span><span style="color: #3399cc">;</span>
+	<span style="color: #3399cc">}</span>
+
+	<span style="color: #00cd00">public</span> <span style="color: #00cd00">double</span> <span style="color: #111111">getImg</span><span style="color: #3399cc">()</span> <span style="color: #3399cc">{</span>
+		<span style="color: #cdcd00">return</span> <span style="color: #111111">img</span><span style="color: #3399cc">;</span>
+	<span style="color: #3399cc">}</span>
+
+	<span style="color: #000080">// Mutators</span>
+	<span style="color: #000080">/* Sets the values of the</span>
+<span style="color: #000080">	 * Fields Real and Imaginary </span>
+<span style="color: #000080">	 */</span>
+
+	<span style="color: #00cd00">public</span> <span style="color: #00cd00">void</span> <span style="color: #111111">setReal</span><span style="color: #3399cc">(</span><span style="color: #00cd00">double</span> <span style="color: #111111">real</span><span style="color: #3399cc">)</span> <span style="color: #3399cc">{</span>
+		<span style="color: #cdcd00">this</span><span style="color: #3399cc">.</span><span style="color: #111111">real</span> <span style="color: #3399cc">=</span> <span style="color: #111111">real</span><span style="color: #3399cc">;</span>
+	<span style="color: #3399cc">}</span>
+
+	<span style="color: #00cd00">public</span> <span style="color: #00cd00">void</span> <span style="color: #111111">setImg</span><span style="color: #3399cc">(</span><span style="color: #00cd00">double</span> <span style="color: #111111">img</span><span style="color: #3399cc">)</span> <span style="color: #3399cc">{</span>
+		<span style="color: #cdcd00">this</span><span style="color: #3399cc">.</span><span style="color: #111111">img</span> <span style="color: #3399cc">=</span> <span style="color: #111111">img</span><span style="color: #3399cc">;</span>
+	<span style="color: #3399cc">}</span>
+<span style="color: #3399cc">}</span>
+</pre></td></tr></table></div>
+
+
+<!-- HTML generated using hilite.me --><div style="background: #FFFFFF; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">  1
+  2
+  3
+  4
+  5
+  6
+  7
+  8
+  9
+ 10
+ 11
+ 12
+ 13
+ 14
+ 15
+ 16
+ 17
+ 18
+ 19
+ 20
+ 21
+ 22
+ 23
+ 24
+ 25
+ 26
+ 27
+ 28
+ 29
+ 30
+ 31
+ 32
+ 33
+ 34
+ 35
+ 36
+ 37
+ 38
+ 39
+ 40
+ 41
+ 42
+ 43
+ 44
+ 45
+ 46
+ 47
+ 48
+ 49
+ 50
+ 51
+ 52
+ 53
+ 54
+ 55
+ 56
+ 57
+ 58
+ 59
+ 60
+ 61
+ 62
+ 63
+ 64
+ 65
+ 66
+ 67
+ 68
+ 69
+ 70
+ 71
+ 72
+ 73
+ 74
+ 75
+ 76
+ 77
+ 78
+ 79
+ 80
+ 81
+ 82
+ 83
+ 84
+ 85
+ 86
+ 87
+ 88
+ 89
+ 90
+ 91
+ 92
+ 93
+ 94
+ 95
+ 96
+ 97
+ 98
+ 99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #000080">// Tsampiras Konstantinos, AM 4508, cse84508</span>
+
+<span style="color: #cd00cd">import</span> <span style="color: #111111">java.util.Random</span><span style="color: #3399cc">;</span>
+
+<span style="color: #00cd00">class</span> <span style="color: #00cdcd">ComplexMatrix</span>
+<span style="color: #3399cc">{</span>
+	<span style="color: #000080">//// Fields</span>
+
+	<span style="color: #00cd00">private</span> <span style="color: #111111">ComplexNumber</span><span style="color: #3399cc">[][]</span> <span style="color: #111111">compNum2DArray</span><span style="color: #3399cc">;</span>
+	<span style="color: #00cd00">private</span> <span style="color: #111111">Random</span> <span style="color: #111111">rand</span> <span style="color: #3399cc">=</span> <span style="color: #cdcd00">new</span> <span style="color: #111111">Random</span><span style="color: #3399cc">();</span>
+	<span style="color: #00cd00">private</span> <span style="color: #00cd00">double</span> <span style="color: #111111">computeRandom</span><span style="color: #3399cc">()</span> <span style="color: #3399cc">{</span>
+		<span style="color: #00cd00">int</span> <span style="color: #111111">randomNum</span> <span style="color: #3399cc">=</span> <span style="color: #3399cc">(</span><span style="color: #00cd00">int</span><span style="color: #3399cc">)((</span><span style="color: #111111">rand</span><span style="color: #3399cc">.</span><span style="color: #111111">nextDouble</span><span style="color: #3399cc">()-</span><span style="color: #cd00cd">0.5</span><span style="color: #3399cc">)*</span><span style="color: #111111">rand</span><span style="color: #3399cc">.</span><span style="color: #111111">nextInt</span><span style="color: #3399cc">(</span><span style="color: #cd00cd">20</span><span style="color: #3399cc">)*</span><span style="color: #cd00cd">100</span><span style="color: #3399cc">);</span>
+		<span style="color: #cdcd00">return</span> <span style="color: #111111">randomNum</span><span style="color: #3399cc">/</span><span style="color: #cd00cd">100.0</span><span style="color: #3399cc">;</span>
+	<span style="color: #3399cc">}</span>
+
+	<span style="color: #000080">//// Constructor Methods</span>
+
+	<span style="color: #000080">// Default Constructor</span>
+	<span style="color: #00cd00">public</span> <span style="color: #111111">ComplexMatrix</span><span style="color: #3399cc">()</span> <span style="color: #3399cc">{}</span>
+
+	<span style="color: #000080">// Matrix Copier (Deep Copy Implementation)</span>
+	<span style="color: #00cd00">public</span> <span style="color: #111111">ComplexMatrix</span><span style="color: #3399cc">(</span><span style="color: #111111">ComplexMatrix</span> <span style="color: #111111">original</span><span style="color: #3399cc">)</span> <span style="color: #3399cc">{</span>
+		<span style="color: #cdcd00">this</span><span style="color: #3399cc">.</span><span style="color: #111111">compNum2DArray</span> <span style="color: #3399cc">=</span> <span style="color: #cdcd00">new</span> <span style="color: #111111">ComplexNumber</span><span style="color: #3399cc">[</span><span style="color: #111111">original</span><span style="color: #3399cc">.</span><span style="color: #111111">compNum2DArray</span><span style="color: #3399cc">.</span><span style="color: #111111">length</span><span style="color: #3399cc">][</span><span style="color: #111111">original</span><span style="color: #3399cc">.</span><span style="color: #111111">compNum2DArray</span><span style="color: #3399cc">[</span><span style="color: #cd00cd">0</span><span style="color: #3399cc">].</span><span style="color: #111111">length</span><span style="color: #3399cc">];</span>
+		<span style="color: #cdcd00">for</span> <span style="color: #3399cc">(</span><span style="color: #00cd00">int</span> <span style="color: #111111">r</span> <span style="color: #3399cc">=</span> <span style="color: #cd00cd">0</span><span style="color: #3399cc">;</span> <span style="color: #111111">r</span> <span style="color: #3399cc">&lt;</span> <span style="color: #111111">original</span><span style="color: #3399cc">.</span><span style="color: #111111">compNum2DArray</span><span style="color: #3399cc">.</span><span style="color: #111111">length</span><span style="color: #3399cc">;</span> <span style="color: #111111">r</span><span style="color: #3399cc">++)</span> <span style="color: #3399cc">{</span>
+			<span style="color: #cdcd00">for</span> <span style="color: #3399cc">(</span><span style="color: #00cd00">int</span> <span style="color: #111111">c</span> <span style="color: #3399cc">=</span> <span style="color: #cd00cd">0</span><span style="color: #3399cc">;</span> <span style="color: #111111">c</span> <span style="color: #3399cc">&lt;</span> <span style="color: #111111">original</span><span style="color: #3399cc">.</span><span style="color: #111111">compNum2DArray</span><span style="color: #3399cc">[</span><span style="color: #111111">r</span><span style="color: #3399cc">].</span><span style="color: #111111">length</span><span style="color: #3399cc">;</span> <span style="color: #111111">c</span><span style="color: #3399cc">++)</span> <span style="color: #3399cc">{</span>
+				<span style="color: #00cd00">double</span> <span style="color: #111111">real</span> <span style="color: #3399cc">=</span> <span style="color: #111111">original</span><span style="color: #3399cc">.</span><span style="color: #111111">compNum2DArray</span><span style="color: #3399cc">[</span><span style="color: #111111">r</span><span style="color: #3399cc">][</span><span style="color: #111111">c</span><span style="color: #3399cc">].</span><span style="color: #111111">getReal</span><span style="color: #3399cc">();</span>
+				<span style="color: #00cd00">double</span> <span style="color: #111111">img</span> <span style="color: #3399cc">=</span> <span style="color: #111111">original</span><span style="color: #3399cc">.</span><span style="color: #111111">compNum2DArray</span><span style="color: #3399cc">[</span><span style="color: #111111">r</span><span style="color: #3399cc">][</span><span style="color: #111111">c</span><span style="color: #3399cc">].</span><span style="color: #111111">getImg</span><span style="color: #3399cc">();</span>
+				<span style="color: #111111">ComplexNumber</span> <span style="color: #111111">num</span> <span style="color: #3399cc">=</span> <span style="color: #cdcd00">new</span> <span style="color: #111111">ComplexNumber</span><span style="color: #3399cc">(</span><span style="color: #111111">real</span><span style="color: #3399cc">,</span> <span style="color: #111111">img</span><span style="color: #3399cc">);</span>
+				<span style="color: #cdcd00">this</span><span style="color: #3399cc">.</span><span style="color: #111111">compNum2DArray</span><span style="color: #3399cc">[</span><span style="color: #111111">r</span><span style="color: #3399cc">][</span><span style="color: #111111">c</span><span style="color: #3399cc">]</span> <span style="color: #3399cc">=</span> <span style="color: #111111">num</span><span style="color: #3399cc">;</span>
+			<span style="color: #3399cc">}</span>
+		<span style="color: #3399cc">}</span>
+	<span style="color: #3399cc">}</span>
+
+	<span style="color: #000080">// Matrix Creator </span>
+	<span style="color: #00cd00">public</span> <span style="color: #111111">ComplexMatrix</span><span style="color: #3399cc">(</span><span style="color: #00cd00">int</span> <span style="color: #111111">rows</span><span style="color: #3399cc">,</span> <span style="color: #00cd00">int</span> <span style="color: #111111">cols</span><span style="color: #3399cc">)</span> <span style="color: #3399cc">{</span>
+		<span style="color: #111111">compNum2DArray</span> <span style="color: #3399cc">=</span> <span style="color: #cdcd00">new</span> <span style="color: #111111">ComplexNumber</span><span style="color: #3399cc">[</span><span style="color: #111111">rows</span><span style="color: #3399cc">][</span><span style="color: #111111">cols</span><span style="color: #3399cc">];</span>
+		<span style="color: #cdcd00">for</span> <span style="color: #3399cc">(</span><span style="color: #00cd00">int</span> <span style="color: #111111">r</span> <span style="color: #3399cc">=</span> <span style="color: #cd00cd">0</span><span style="color: #3399cc">;</span> <span style="color: #111111">r</span> <span style="color: #3399cc">&lt;</span> <span style="color: #111111">rows</span><span style="color: #3399cc">;</span> <span style="color: #111111">r</span><span style="color: #3399cc">++)</span> <span style="color: #3399cc">{</span>
+			<span style="color: #cdcd00">for</span> <span style="color: #3399cc">(</span><span style="color: #00cd00">int</span> <span style="color: #111111">c</span> <span style="color: #3399cc">=</span> <span style="color: #cd00cd">0</span><span style="color: #3399cc">;</span> <span style="color: #111111">c</span> <span style="color: #3399cc">&lt;</span> <span style="color: #111111">cols</span><span style="color: #3399cc">;</span> <span style="color: #111111">c</span><span style="color: #3399cc">++)</span> <span style="color: #3399cc">{</span>
+				<span style="color: #111111">ComplexNumber</span> <span style="color: #111111">num</span> <span style="color: #3399cc">=</span> <span style="color: #cdcd00">new</span> <span style="color: #111111">ComplexNumber</span><span style="color: #3399cc">(</span><span style="color: #111111">computeRandom</span><span style="color: #3399cc">(),</span> <span style="color: #111111">computeRandom</span><span style="color: #3399cc">());</span>
+				<span style="color: #111111">compNum2DArray</span><span style="color: #3399cc">[</span><span style="color: #111111">r</span><span style="color: #3399cc">][</span><span style="color: #111111">c</span><span style="color: #3399cc">]</span> <span style="color: #3399cc">=</span> <span style="color: #111111">num</span><span style="color: #3399cc">;</span>
+			<span style="color: #3399cc">}</span>
+		<span style="color: #3399cc">}</span>
+	<span style="color: #3399cc">}</span>
+
+	<span style="color: #000080">//// Methods</span>
+
+	<span style="color: #000080">// toString Method</span>
+	<span style="color: #000080">/* Returns a String representation of </span>
+<span style="color: #000080">	 * the object that called the method with</span>
+<span style="color: #000080">	 * the format :			[CN11, CN12, CN13;</span>
+<span style="color: #000080">	 * (e.g. for a 3x3 		CN21, CN22, CN23;</span>
+<span style="color: #000080">	 * ComplexNumberRowCol)	CN31, CN32, CN33;]	</span>
+<span style="color: #000080">	 */</span>
+
+	<span style="color: #00cd00">public</span> <span style="color: #111111">String</span> <span style="color: #111111">toString</span><span style="color: #3399cc">()</span> <span style="color: #3399cc">{</span>
+		<span style="color: #111111">String</span> <span style="color: #111111">x</span> <span style="color: #3399cc">=</span> <span style="color: #cd0000">&quot;[&quot;</span><span style="color: #3399cc">;</span>
+		<span style="color: #cdcd00">for</span> <span style="color: #3399cc">(</span><span style="color: #00cd00">int</span> <span style="color: #111111">r</span> <span style="color: #3399cc">=</span> <span style="color: #cd00cd">0</span><span style="color: #3399cc">;</span> <span style="color: #111111">r</span> <span style="color: #3399cc">&lt;</span> <span style="color: #111111">compNum2DArray</span><span style="color: #3399cc">.</span><span style="color: #111111">length</span><span style="color: #3399cc">;</span> <span style="color: #111111">r</span><span style="color: #3399cc">++)</span> <span style="color: #3399cc">{</span>
+			<span style="color: #cdcd00">for</span> <span style="color: #3399cc">(</span><span style="color: #00cd00">int</span> <span style="color: #111111">c</span> <span style="color: #3399cc">=</span> <span style="color: #cd00cd">0</span><span style="color: #3399cc">;</span> <span style="color: #111111">c</span> <span style="color: #3399cc">&lt;</span> <span style="color: #111111">compNum2DArray</span><span style="color: #3399cc">[</span><span style="color: #111111">r</span><span style="color: #3399cc">].</span><span style="color: #111111">length</span><span style="color: #3399cc">;</span> <span style="color: #111111">c</span><span style="color: #3399cc">++)</span> <span style="color: #3399cc">{</span>
+				<span style="color: #111111">x</span> <span style="color: #3399cc">+=</span> <span style="color: #111111">compNum2DArray</span><span style="color: #3399cc">[</span><span style="color: #111111">r</span><span style="color: #3399cc">][</span><span style="color: #111111">c</span><span style="color: #3399cc">]</span> <span style="color: #3399cc">+</span> <span style="color: #cd0000">&quot;, &quot;</span> <span style="color: #3399cc">;</span>
+			<span style="color: #3399cc">}</span>
+			<span style="color: #cdcd00">if</span> <span style="color: #3399cc">(</span><span style="color: #111111">r</span> <span style="color: #3399cc">==</span> <span style="color: #111111">compNum2DArray</span><span style="color: #3399cc">.</span><span style="color: #111111">length</span><span style="color: #3399cc">-</span><span style="color: #cd00cd">1</span><span style="color: #3399cc">)</span> <span style="color: #3399cc">{</span>
+				<span style="color: #111111">x</span> <span style="color: #3399cc">+=</span> <span style="color: #cd0000">&quot;\b\b;]&quot;</span><span style="color: #3399cc">;</span>
+			<span style="color: #3399cc">}</span> <span style="color: #cdcd00">else</span> <span style="color: #3399cc">{</span> 
+				<span style="color: #111111">x</span> <span style="color: #3399cc">+=</span> <span style="color: #cd0000">&quot;\b\b;\n&quot;</span><span style="color: #3399cc">;</span>
+			<span style="color: #3399cc">}</span>
+		<span style="color: #3399cc">}</span>
+		<span style="color: #cdcd00">return</span> <span style="color: #111111">x</span><span style="color: #3399cc">;</span>
+	<span style="color: #3399cc">}</span>
+
+	<span style="color: #000080">// CompAdd Method </span>
+	<span style="color: #000080">/* Checks if the 2 matrices have the same number of rows and columns</span>
+<span style="color: #000080">	 * if they don&#39;t, returns nothing (null), if they do, it iterates</span>
+<span style="color: #000080">	 * the values of each row and column and calculates the sum of the 2 </span>
+<span style="color: #000080">	 * Complex Numbers (objects) with the instructions described in the </span>
+<span style="color: #000080">	 * ComplexNumber.java file, and puts the values to the matrix that called the method</span>
+<span style="color: #000080">	 */</span>
+
+	<span style="color: #00cd00">public</span> <span style="color: #111111">ComplexMatrix</span> <span style="color: #111111">CompAdd</span><span style="color: #3399cc">(</span><span style="color: #111111">ComplexMatrix</span> <span style="color: #111111">matrix</span><span style="color: #3399cc">)</span> <span style="color: #3399cc">{</span>
+		<span style="color: #cdcd00">if</span> <span style="color: #3399cc">(</span><span style="color: #cdcd00">this</span><span style="color: #3399cc">.</span><span style="color: #111111">compNum2DArray</span><span style="color: #3399cc">.</span><span style="color: #111111">length</span> <span style="color: #3399cc">!=</span> <span style="color: #111111">matrix</span><span style="color: #3399cc">.</span><span style="color: #111111">compNum2DArray</span><span style="color: #3399cc">.</span><span style="color: #111111">length</span> <span style="color: #3399cc">||</span> 
+			<span style="color: #cdcd00">this</span><span style="color: #3399cc">.</span><span style="color: #111111">compNum2DArray</span><span style="color: #3399cc">[</span><span style="color: #cd00cd">0</span><span style="color: #3399cc">].</span><span style="color: #111111">length</span> <span style="color: #3399cc">!=</span> <span style="color: #111111">matrix</span><span style="color: #3399cc">.</span><span style="color: #111111">compNum2DArray</span><span style="color: #3399cc">[</span><span style="color: #cd00cd">0</span><span style="color: #3399cc">].</span><span style="color: #111111">length</span><span style="color: #3399cc">)</span> <span style="color: #3399cc">{</span>
+			<span style="color: #cdcd00">return</span> <span style="color: #cdcd00">null</span><span style="color: #3399cc">;</span>
+		<span style="color: #3399cc">}</span> <span style="color: #cdcd00">else</span> <span style="color: #3399cc">{</span>
+			<span style="color: #cdcd00">for</span> <span style="color: #3399cc">(</span><span style="color: #00cd00">int</span> <span style="color: #111111">r</span> <span style="color: #3399cc">=</span> <span style="color: #cd00cd">0</span><span style="color: #3399cc">;</span> <span style="color: #111111">r</span> <span style="color: #3399cc">&lt;</span> <span style="color: #111111">compNum2DArray</span><span style="color: #3399cc">.</span><span style="color: #111111">length</span><span style="color: #3399cc">;</span> <span style="color: #111111">r</span><span style="color: #3399cc">++)</span> <span style="color: #3399cc">{</span>
+				<span style="color: #cdcd00">for</span> <span style="color: #3399cc">(</span><span style="color: #00cd00">int</span> <span style="color: #111111">c</span> <span style="color: #3399cc">=</span> <span style="color: #cd00cd">0</span><span style="color: #3399cc">;</span> <span style="color: #111111">c</span> <span style="color: #3399cc">&lt;</span> <span style="color: #111111">compNum2DArray</span><span style="color: #3399cc">[</span><span style="color: #111111">r</span><span style="color: #3399cc">].</span><span style="color: #111111">length</span><span style="color: #3399cc">;</span> <span style="color: #111111">c</span><span style="color: #3399cc">++)</span> <span style="color: #3399cc">{</span>
+					<span style="color: #cdcd00">this</span><span style="color: #3399cc">.</span><span style="color: #111111">compNum2DArray</span><span style="color: #3399cc">[</span><span style="color: #111111">r</span><span style="color: #3399cc">][</span><span style="color: #111111">c</span><span style="color: #3399cc">]</span> <span style="color: #3399cc">=</span> <span style="color: #cdcd00">this</span><span style="color: #3399cc">.</span><span style="color: #111111">compNum2DArray</span><span style="color: #3399cc">[</span><span style="color: #111111">r</span><span style="color: #3399cc">][</span><span style="color: #111111">c</span><span style="color: #3399cc">].</span><span style="color: #111111">addComp</span><span style="color: #3399cc">(</span><span style="color: #111111">matrix</span><span style="color: #3399cc">.</span><span style="color: #111111">compNum2DArray</span><span style="color: #3399cc">[</span><span style="color: #111111">r</span><span style="color: #3399cc">][</span><span style="color: #111111">c</span><span style="color: #3399cc">]);</span>
+				<span style="color: #3399cc">}</span>
+			<span style="color: #3399cc">}</span>
+			<span style="color: #cdcd00">return</span> <span style="color: #cdcd00">this</span><span style="color: #3399cc">;</span>
+		<span style="color: #3399cc">}</span>
+	<span style="color: #3399cc">}</span>
+
+	<span style="color: #000080">// CompSubtract Method</span>
+	<span style="color: #000080">/* Checks if the 2 matrices have the same number of rows and columns</span>
+<span style="color: #000080">	 * if they don&#39;t, returns nothing (null), if they do, it iterates</span>
+<span style="color: #000080">	 * the values of each row and column and calculates the difference of </span>
+<span style="color: #000080">	 * the 2 Complex Numbers (objects) with the instructions described in </span>
+<span style="color: #000080">	 * the ComplexNumber.java, and puts the values to the matrix that called the method</span>
+<span style="color: #000080">	 */</span>
+
+	<span style="color: #00cd00">public</span> <span style="color: #111111">ComplexMatrix</span> <span style="color: #111111">CompSubtract</span><span style="color: #3399cc">(</span><span style="color: #111111">ComplexMatrix</span> <span style="color: #111111">matrix</span><span style="color: #3399cc">)</span> <span style="color: #3399cc">{</span>
+		<span style="color: #cdcd00">if</span> <span style="color: #3399cc">(</span><span style="color: #cdcd00">this</span><span style="color: #3399cc">.</span><span style="color: #111111">compNum2DArray</span><span style="color: #3399cc">.</span><span style="color: #111111">length</span> <span style="color: #3399cc">!=</span> <span style="color: #111111">matrix</span><span style="color: #3399cc">.</span><span style="color: #111111">compNum2DArray</span><span style="color: #3399cc">.</span><span style="color: #111111">length</span> <span style="color: #3399cc">||</span>
+			<span style="color: #cdcd00">this</span><span style="color: #3399cc">.</span><span style="color: #111111">compNum2DArray</span><span style="color: #3399cc">[</span><span style="color: #cd00cd">0</span><span style="color: #3399cc">].</span><span style="color: #111111">length</span> <span style="color: #3399cc">!=</span> <span style="color: #111111">matrix</span><span style="color: #3399cc">.</span><span style="color: #111111">compNum2DArray</span><span style="color: #3399cc">[</span><span style="color: #cd00cd">0</span><span style="color: #3399cc">].</span><span style="color: #111111">length</span><span style="color: #3399cc">)</span> <span style="color: #3399cc">{</span>
+			<span style="color: #cdcd00">return</span> <span style="color: #cdcd00">null</span><span style="color: #3399cc">;</span>
+		<span style="color: #3399cc">}</span> <span style="color: #cdcd00">else</span> <span style="color: #3399cc">{</span>
+			<span style="color: #cdcd00">for</span> <span style="color: #3399cc">(</span><span style="color: #00cd00">int</span> <span style="color: #111111">r</span> <span style="color: #3399cc">=</span> <span style="color: #cd00cd">0</span><span style="color: #3399cc">;</span> <span style="color: #111111">r</span> <span style="color: #3399cc">&lt;</span> <span style="color: #111111">compNum2DArray</span><span style="color: #3399cc">.</span><span style="color: #111111">length</span><span style="color: #3399cc">;</span> <span style="color: #111111">r</span><span style="color: #3399cc">++)</span> <span style="color: #3399cc">{</span>
+				<span style="color: #cdcd00">for</span> <span style="color: #3399cc">(</span><span style="color: #00cd00">int</span> <span style="color: #111111">c</span> <span style="color: #3399cc">=</span> <span style="color: #cd00cd">0</span><span style="color: #3399cc">;</span> <span style="color: #111111">c</span> <span style="color: #3399cc">&lt;</span> <span style="color: #111111">compNum2DArray</span><span style="color: #3399cc">[</span><span style="color: #111111">r</span><span style="color: #3399cc">].</span><span style="color: #111111">length</span><span style="color: #3399cc">;</span> <span style="color: #111111">c</span><span style="color: #3399cc">++)</span> <span style="color: #3399cc">{</span>
+					<span style="color: #cdcd00">this</span><span style="color: #3399cc">.</span><span style="color: #111111">compNum2DArray</span><span style="color: #3399cc">[</span><span style="color: #111111">r</span><span style="color: #3399cc">][</span><span style="color: #111111">c</span><span style="color: #3399cc">]</span> <span style="color: #3399cc">=</span> <span style="color: #cdcd00">this</span><span style="color: #3399cc">.</span><span style="color: #111111">compNum2DArray</span><span style="color: #3399cc">[</span><span style="color: #111111">r</span><span style="color: #3399cc">][</span><span style="color: #111111">c</span><span style="color: #3399cc">].</span><span style="color: #111111">subtractComp</span><span style="color: #3399cc">(</span><span style="color: #111111">matrix</span><span style="color: #3399cc">.</span><span style="color: #111111">compNum2DArray</span><span style="color: #3399cc">[</span><span style="color: #111111">r</span><span style="color: #3399cc">][</span><span style="color: #111111">c</span><span style="color: #3399cc">]);</span>
+				<span style="color: #3399cc">}</span>
+			<span style="color: #3399cc">}</span>
+			<span style="color: #cdcd00">return</span> <span style="color: #cdcd00">this</span><span style="color: #3399cc">;</span>
+		<span style="color: #3399cc">}</span>
+	<span style="color: #3399cc">}</span>
+<span style="color: #3399cc">}</span>
+</pre></td></tr></table></div>

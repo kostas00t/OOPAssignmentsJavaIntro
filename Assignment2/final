@@ -1,0 +1,520 @@
+// Tsampiras Konstantinos, AM 4508, cse84508
+
+// Sensor Class
+
+import java.util.Random;
+
+abstract class Sensor 
+{
+    // Attributes
+    private double value;
+    private int sensorID;
+    private double randomValue;
+    private Random rand = new Random();
+
+
+
+    // My Constructor (without parameters)
+    public Sensor() {
+        this.value = randomValue;
+        computeRandomID();
+    }
+
+    // Constructor that defines all the fields
+    public Sensor(double value, int sensorID, double randomValue) {
+        this.value = value;
+        this.sensorID = sensorID;
+        this.randomValue = randomValue;
+    }
+
+    // Copy Constructor
+    public Sensor(Sensor other) {
+        other.value = this.getValue();
+        other.sensorID = this.getSensorID();
+        other.randomValue = this.getRandomValue();
+    }
+
+
+
+    // update 
+    public abstract void update();
+
+    // computeRandomID
+    public void computeRandomID() {
+        setSensorID(rand.nextInt(1000000000));
+    }
+
+    // equals method
+    public boolean equals(Sensor other) {
+        if (this.value == other.value && this.sensorID == other.sensorID) {
+            return true;
+        }
+        return false;
+    }
+
+    // toString method
+    public String toString() {
+        return "value: " + value + " id: " + sensorID + " ;";
+    }
+
+    // Accessors
+    public double getValue() {
+        return value;
+    }
+
+    public int getSensorID() {
+        return sensorID;
+    }
+
+    public double getRandomValue() {
+        return randomValue;
+    }
+
+    // Mutators
+    public void setValue(double value) {
+        this.value = value;
+    }
+
+    public void setSensorID(int sensorID) {
+        this.sensorID = sensorID;
+    }
+
+    public void setRandomValue(double randomValue) {
+        this.randomValue = randomValue;
+    }
+}
+
+// Temperature Class
+
+import java.util.Random;
+
+class Temperature extends Sensor
+{
+    // Attribute
+    private Random randomIntValue = new Random();
+
+
+
+    // My Constructor (without parameters) 
+    public Temperature() {
+        super();
+    }
+
+    // Constructor that defines all the fields
+    public Temperature(double temperatureValue, int sensorID, double randomValue) {
+        super(temperatureValue, sensorID, randomValue);
+    }
+    
+    // Copy Constructor
+    public Temperature(Temperature other) {
+    	super(other);
+    }
+    
+
+
+    // equals method
+    public boolean equals(Temperature other) {
+    	if (this.getValue() == other.getValue()) {
+    		return true;
+    	}
+    	return false;
+    }
+    
+    // toString method
+    public String toString() {
+    	return "Thermokrasia: " + (int)this.getValue() + "; (SID: " + this.getSensorID() + "); \n\t";
+    }
+    
+    // update 
+    public void update() {
+        super.setValue(randomIntValue.nextInt(101));
+    }
+
+    // computeRandom
+    public double computeRandom() {
+        double x = randomIntValue.nextInt(101);
+        super.setRandomValue(x);
+        return x;
+    }
+}
+
+// Light Class
+
+import java.util.Random;
+
+class Light extends Sensor
+{
+    // Attribute
+    private Random randomDoubleValue = new Random();
+
+
+    
+    // My Constructor (without parameters)
+    public Light() {
+        super();
+    }
+
+    // Constructor that defines all the fields
+    public Light(double lightValue, int sensorID, double randomValue) {
+        super(lightValue, sensorID, randomValue);
+    }
+
+    // Copy Constructor
+    public Light(Light other) {
+    	super(other);
+    }
+
+
+
+    // equals method
+    public boolean equals(Light other) {
+    	if (this.getValue() == other.getValue()) {
+    		return true;
+    	}
+    	return false;
+    }
+    
+    // toString method
+    public String toString() {
+    	return "Foteinotita: " + String.format("%.2f", this.getValue()) + "; (SID: " + this.getSensorID()+ "); \n\t";
+    }
+
+    // update
+    public void update() {
+        super.setValue(200*randomDoubleValue.nextDouble());
+    }
+
+    // computeRandom 
+    public double computeRandom() {
+        double x = 200*randomDoubleValue.nextDouble();
+        super.setRandomValue(x);
+        return x;
+    }
+}
+
+// Reliability Class
+
+import java.lang.Math;
+
+class Reliability
+{
+    // Attributes
+    private double temperatureReliability;
+    private double lightReliability;
+    private double totalReliability;
+    private int timePassed = 1;
+
+
+
+    // My Constructor (without parameters)
+    public Reliability() {
+        temperatureReliability = Math.exp(-0.001*timePassed);
+        lightReliability = Math.exp(-0.001*timePassed);
+        totalReliability = temperatureReliability*lightReliability;
+        timePassed = 1;
+    }
+    
+    // Constructor that defines all the fields
+    public Reliability(double temperatureReliability, double lightReliability, double totalReliability, int timePassed) {
+    	this.temperatureReliability = temperatureReliability;
+    	this.lightReliability = lightReliability;
+    	this.totalReliability = totalReliability;
+    	this.timePassed = timePassed;
+    }
+    
+    // Copy Constructor
+    public Reliability(Reliability other) {
+    	this.temperatureReliability = other.getTemperatureReliability();
+    	this.lightReliability = other.getLightReliability();
+    	this.totalReliability = other.getTotalReliability();
+    	this.timePassed = other.getTimePassed();
+    }
+
+
+
+    // equals method
+    public boolean equals(Reliability other) {
+    	if (this.temperatureReliability == other.temperatureReliability && this.lightReliability == other.lightReliability && 
+    		this.totalReliability == other.totalReliability && this.timePassed == other.timePassed) {
+    		return true;
+    	}
+    	return false;
+    }
+    
+    // toString method
+    public String toString() {
+    	return "Synoliki aksiopistia: " + String.format("%.2f", this.getTotalReliability()) + "; ";
+    }
+    
+    // Accessors
+    public double getTemperatureReliability() {
+        return temperatureReliability;
+    }
+
+    public double getLightReliability() {
+        return lightReliability;
+    }
+
+    public double getTotalReliability() {
+        return totalReliability;
+    }
+
+    public int getTimePassed() {
+        return timePassed;
+    }
+
+    // Mutators
+    public void setTemperatureReliability(double temperatureReliability) {
+        this.temperatureReliability = temperatureReliability;
+    }
+
+    public void setLightReliability(double lightReliability) {
+        this.lightReliability = lightReliability;
+    }
+
+    public void setTotalReliability(double totalReliability) {
+        this.totalReliability = totalReliability;
+    }
+
+    public void setTimePassed(int timePassed) {
+        this.timePassed = timePassed;
+    }
+
+    // updateReliability
+    public void updateReliability() {
+        timePassed++;
+        temperatureReliability = Math.exp(-0.001*timePassed);
+        lightReliability = Math.exp(-0.001*timePassed);
+        totalReliability = temperatureReliability*lightReliability;
+    }
+}
+
+// Room Class
+
+class Room implements Comparable<Room>
+{
+    // Attributes
+    private Integer roomID;
+    private Temperature tempSensor;
+    private Light lightSensor;
+    private Reliability reliabilityOfSensors;
+
+
+
+    // My Constructor (only with roomID as parameter)
+    public Room(Integer roomID) {
+        this.roomID = roomID;
+        tempSensor = new Temperature();
+        lightSensor = new Light();
+        tempSensor.update();
+        lightSensor.update();
+        reliabilityOfSensors = new Reliability();
+    }
+    
+    // Constructor that defines all the fields
+    public Room(Integer roomID, Temperature tempSensor, Light lightSensor, Reliability reliabilityOfSensors) {
+    	this.roomID = roomID;
+    	this.tempSensor = tempSensor;
+    	this.lightSensor = lightSensor;
+    	this.reliabilityOfSensors = reliabilityOfSensors;
+    }
+    
+    // Copy Constructor
+    public Room(Room other) {
+    	this.roomID = other.getRoomID();
+    	this.tempSensor = new Temperature(tempSensor);
+    	this.lightSensor = new Light(lightSensor);
+    	this.reliabilityOfSensors = new Reliability(reliabilityOfSensors);	
+    }
+
+
+
+    // equals method
+    public boolean equals(Room other) {
+        if (this.roomID == other.roomID) {
+            return true;
+        }
+        return false;
+    }
+
+    // toString method
+    public String toString() {
+        String x = "Area: " + roomID.toString() + "; \n\t" + tempSensor.toString() + lightSensor.toString() + reliabilityOfSensors.toString();
+        if (this.getTempSensor() > 50 && this.getLightSensor() > 140.0 && this.getReliabilityOfSensors() > 0.9) {
+            x += "\n\t- Entopistike Pyrkagia !!!\n";
+        } else {
+            x += "\n\t- Den yparxei pyrkagia\n";
+        }
+        return x;
+    }
+
+    // Accessors
+    public Integer getRoomID() {
+		return roomID;
+    }
+
+    public int getTempSensor() {
+        return (int)tempSensor.getValue();
+    }
+
+    public double getLightSensor() {
+        return lightSensor.getValue();
+    }
+
+    public double getReliabilityOfSensors() {
+        return reliabilityOfSensors.getTotalReliability();
+    }
+    
+    public int getTime() {
+    	return reliabilityOfSensors.getTimePassed();
+    }
+    
+    // Mutators
+    public void setRoomID(Integer roomID) {
+		this.roomID = roomID;
+    }
+    
+    public void setTempSensor(int temperatureValue) {
+        tempSensor.setValue(temperatureValue);
+    }
+
+    public void setLightSensor(double lightValue) {
+        lightSensor.setValue(lightValue);
+    }
+
+    public void setReliabilityOfSensors(double totalReliability) {
+        reliabilityOfSensors.setTotalReliability(totalReliability);
+    }
+
+    public void setTime(int timePassed) {
+    	reliabilityOfSensors.setTimePassed(timePassed);
+    }
+    
+    // updater
+    public void updater() {
+        tempSensor.update();
+        lightSensor.update();
+        reliabilityOfSensors.updateReliability();
+    }
+
+    // compareTo
+    public int compareTo(Room other) {
+    	return this.getRoomID().compareTo(other.getRoomID());
+    }
+}
+
+// SEP Class
+
+import java.io.PrintWriter;
+import java.io.FileOutputStream;
+import java.io.FileNotFoundException;
+import java.util.InputMismatchException;
+import java.util.ArrayList;
+import java.util.Scanner;
+import java.util.Collections;
+
+
+class SEP 
+{
+    public static void main (String[] args) 
+    {
+    	// Required Attributes
+        ArrayList<Room> rooms = new ArrayList<Room>();
+		Scanner userInput = new Scanner(System.in);
+        String choice = "0";
+        PrintWriter outputWriter = null;
+        do
+        {
+            // Main Console Menu
+            System.out.println("\n1) Eisagogh mias topothesias sto ktirio.\n2) Ananeosh ton metriseon.\n3) Elegxos pyrkagias.\n4) Exodos.\n");
+            System.out.print("Choose: ");
+            choice = userInput.next();
+            
+            // 4 Cases 
+            switch (choice) 
+            {
+            	// Adds a new room to the array (if its already added, it's ignored)
+                case "1":
+                    while (true) {
+                        try {
+                            System.out.print("Eisagete arithmo domatiou:  ");
+                            int roomID = userInput.nextInt();
+                            if (roomID <= 0) {
+                                System.out.println("Eisagogh anepitixis - Mi egkiros arithmos domatiou\n");
+                                break;
+                            }
+                            Room aRoom = new Room(roomID);
+                            boolean roomContain = false;
+                            for (Room inTheList: rooms) {
+                                if (inTheList.equals(aRoom)) {
+                                    roomContain = true;
+                                    break;
+                                } 
+                            }
+                            if (!roomContain) {
+                                rooms.add(aRoom);
+                                break;
+                            }
+                            break;
+                        } catch(InputMismatchException e) {
+                            userInput.nextLine();
+                            System.out.println("Dokimaste ksana");
+                        } 
+                    }
+                    break;
+                    
+                // It sorts the array based on the roomID, saves the previous results to a file and then it
+                // refreshes the values of the sensors (if there's an older file with the same name, is overwritten)
+                case "2":
+                	// Sorting
+                    Collections.sort(rooms);
+                    // Writing to a file
+                    try {
+                        outputWriter = new PrintWriter(new FileOutputStream("measures.txt"));
+                        for (Room y: rooms) {
+                            outputWriter.println(y.toString() + "\tXronos " + y.getTime() + ";\n\n");
+                        }
+                    } catch(FileNotFoundException e) {
+                        System.out.println("Error opening the file measures.txt.");
+                    }
+                    outputWriter.close();
+                    // Updating sensors
+                    for (Room y: rooms) {
+                        y.updater();
+                    }
+                    System.out.println("Ananeosi epitixis, teleutaies times sto arxeio: measures.txt");
+                    break;
+                    
+                // Checks for fire on a room specified by the user
+                case "3":
+                    Collections.sort(rooms);
+                    while (true) {
+                        try {
+                            System.out.print("Eisagagete kodiko domatiou h 0 gia ola ta domatia:  ");
+                            Integer roomToCheck = userInput.nextInt();
+                            for (Room a: rooms) {
+                                if (roomToCheck.equals(a.getRoomID())) {
+                                    System.out.println(a);
+                                } else if (roomToCheck == 0) {
+                                    System.out.println(a);
+                                }
+                            }
+                            break;
+                        } catch(InputMismatchException e) {
+                            userInput.nextLine();
+                            System.out.println("Dokimaste ksana");
+                        }
+                    }
+                    break;
+                    
+                // Exits the application
+                case "4":
+                    System.exit(0);
+
+                // Throws a message of invalid option
+                default:
+                    System.out.println("\nMi egkiri epilogi\n");
+            }
+        } while (true);
+    }
+}

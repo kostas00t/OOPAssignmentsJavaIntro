@@ -1,0 +1,11 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - ComplexNumberTest",
+            "request": "launch",
+            "mainClass": "ComplexNumberTest",
+            "projectName": "Assignment1_e1dd5173"
+        }
+    ]
+}

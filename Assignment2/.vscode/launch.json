@@ -1,0 +1,10 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - SEP",
+            "request": "launch",
+            "mainClass": "SEP"
+        }
+    ]
+}

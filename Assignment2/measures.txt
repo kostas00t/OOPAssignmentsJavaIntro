@@ -1,0 +1,24 @@
+Area: 1; 
+	Thermokrasia: 28; (SID: 608579213); 
+	Foteinotita: 108,03; (SID: 899393992); 
+	Synoliki aksiopistia: 1,00; 
+	- Den yparxei pyrkagia
+	Xronos 1;
+
+
+Area: 2; 
+	Thermokrasia: 28; (SID: 59912486); 
+	Foteinotita: 175,62; (SID: 376228624); 
+	Synoliki aksiopistia: 1,00; 
+	- Den yparxei pyrkagia
+	Xronos 1;
+
+
+Area: 3; 
+	Thermokrasia: 65; (SID: 459579721); 
+	Foteinotita: 195,47; (SID: 831959992); 
+	Synoliki aksiopistia: 1,00; 
+	- Entopistike Pyrkagia !!!
+	Xronos 1;
+
+
